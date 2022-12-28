@@ -1,5 +1,4 @@
-import logo from './logo.svg'
-import './App.css'
+import { register } from '../controllers/auth'
 
 function App () {
   return (
