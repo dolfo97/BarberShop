@@ -23,11 +23,10 @@ app.use(express.static(path.join(__dirname, 'build')))
 // app.use(require('./config/checkToken'))
 // app.use('/api/users', require('./routes/api/users'))
 
-app.use(bodyParser.json({ limit: '30mb', extended: true }));
-app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
+app.use(bodyParser.json({ limit: '30mb', extended: true }))
+app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 // app.use(cors());
-app.use('/images', express.static(path.join(__dirname, 'src/components/images')));
-
+app.use('/images', express.static(path.join(__dirname, 'src/components/images')))
 
 // const ensureLoggedIn = require('./config/ensureLoggedIn')
 // app.use('/api/items', ensureLoggedIn, require('./routes/api/items'))
@@ -35,16 +34,14 @@ app.use('/images', express.static(path.join(__dirname, 'src/components/images'))
 
 // FILE STORAGE
 const storage = multer.diskStorage({
-    destination: function (req, res, cb) {
-        cb(null, 'src/components/images');
-    },
-    filename: function (req, res, cb) {
-         cb(null, file.originalname);
-    }
+  destination: function (req, res, cb) {
+    cb(null, 'src/components/images')
+  },
+  filename: function (req, res, cb) {
+    cb(null, file.originalname)
+  }
 })
-const upload = multer({ storage });
-
-
+const upload = multer({ storage })
 
 app.get('/api/test', (req, res) => {
   res.json({ eureka: 'you have found it' })
