@@ -1,7 +1,6 @@
-
-const User = require('../models/user')
-const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt')
+import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
+import User from "../models/user.js"
 
 export const register = async (req, res) => {
   try {
