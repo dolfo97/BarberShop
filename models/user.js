@@ -1,9 +1,9 @@
-const { Schema, model } = require('mongoose')
-const bcrypt = require('bcrypt')
+import mongoose from "mongoose"
+import bcrypt from "bcrypt"
 
 const SALT_ROUNDS = 6
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: true,
@@ -58,4 +58,5 @@ userSchema.pre('save', async function (next) {
   return next()
 })
 
-module.exports = model('User', userSchema)
+const User = mongoose.model("User", userSchema)
+export default User

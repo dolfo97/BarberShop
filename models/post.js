@@ -1,7 +1,6 @@
-const { Schema, model } = require('mongoose')
-const bcrypt = require('bcrypt')
+import mongoose from "mongoose"
 
-const postSchema = new Schema(
+const postSchema = new mongoose.Schema(
   {
     userId: {
       type: String,
@@ -31,4 +30,6 @@ const postSchema = new Schema(
   { timestamps: true }
 )
 
-module.exports = model('Post', postSchema)
+const Post = mongoose.model("Post", postSchema)
+
+export default Post
